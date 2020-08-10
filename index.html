@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>LogoCar</title>
+	<meta name="author" content="Breno Ximenes">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ia-edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+	<style>
+		#map{
+			height: 200px;
+			background-color:grey;
+			border-top: 5px solid #ff6600; border-radius: 0px;
+		}
+
+		.nav-link{
+			font-size: 16px;
+			margin-top: 25px;
+			margin-left: 15px;
+			margin-bottom: 10px;
+			display: inline;
+
+		}
+		.nav-link:hover{
+			opacity: .8;
+			color: #BA3621;
+			border-radius: 3px;
+			font-weight: bold;
+		}
+		.search{
+			display: inline-block;
+			margin-top: 5px;
+			margin-left: 15px;
+			margin-bottom: 10px;
+		}
+		.search-icon{
+			height: 22px;
+			width: 18px;
+
+		}
+		.search-btn{
+			
+			border-radius:8px;
+		}
+		.search-btn:hover{
+			filter: invert(100%);
+			cursor: pointer;
+		}
+		.navbar-brand{
+			font-size: 30px;
+			font-weight: bold;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: #fff;
+		}
+
+		.carimages{
+			background-color: #202020;
+			border-top: 10px solid #202020; border-radius: 0px;
+			border-bottom:10px solid #202020; border-radius: 0px;
+
+		}
+		.row-card{
+			padding: 15px;
+			border-bottom: 3px solid #ff6600;
+			margin: 20px;
+		}
+		.card{
+			width: 13rem; 
+			display: inline-block;
+			padding: 15px;
+			border-bottom: 3px solid #D9560B;
+			margin: 20px;
+
+		}
+		ul.social-network {
+			list-style: none;
+			display: inline;
+			padding-top: 0px;
+			margin-left: 20px; !important;
+			padding: 10px;
+			height: 15px;
+			width: 15px;
+		}
+			ul.social-network li {
+				display: inline;
+				margin: 0 5px;
+			}
+
+			.social-network a.icoRss:hover {
+			background-color: #F56505;
+			}
+			.social-network a.icoFacebook:hover {
+			background-color:#3B5998;
+			}
+			.social-network a.icoTwitter:hover {
+			background-color:#33ccff;
+			}
+			.social-network a.icoGoogle:hover {
+				background-color:#BD3518;
+			}
+			.social-network a.icoVimeo:hover {
+				background-color:#0590B8;
+			}
+			.social-network a.icoLinkedin:hover {
+				background-color:#007bb7;
+			}
+			.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+			.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+				color:#fff;
+			}
+			a.socialIcon:hover, .socialHoverClass {
+				color:#44BCDD;
+			}
+
+			.social-circle li a {
+				display:inline-block;
+				position:relative;
+				margin:0 auto 0 auto;
+				-moz-border-radius:50%;
+				-webkit-border-radius:50%;
+				border-radius:50%;
+				text-align:center;
+				width: 35px;
+				height: 35px;
+				font-size:20px;
+				background-color: #231F20;
+
+			}
+			.social-circle li i {
+				margin:0;
+				line-height:35px;
+				text-align: center;
+			}
+
+			.social-circle li a:hover i, .triggeredHover {
+				-moz-transform: rotate(360deg);
+				-webkit-transform: rotate(360deg);
+				-ms--transform: rotate(360deg);
+				transform: rotate(360deg);
+				-webkit-transition: all 0.2s;
+				-moz-transition: all 0.2s;
+				-o-transition: all 0.2s;
+				-ms-transition: all 0.2s;
+				transition: all 0.2s;
+			}
+			.social-circle i {
+				color: #fff;
+				-webkit-transition: all 0.8s;
+				-moz-transition: all 0.8s;
+				-o-transition: all 0.8s;
+				-ms-transition: all 0.8s;
+				transition: all 0.8s;
+			}
+
+
+		.titulo{
+			font-size: 30px;
+			margin-top: 50px;
+			margin-bottom: 10px;
+			color: #ff6600;
+
+		}
+		
+		.footer{
+			padding: 20px;
+			background-color: #ff6600;
+			color: #fff;
+			border-top: 5px solid #202020; border-radius: 0px;
+		}
+		.footer-link{
+			color: #000;
+
+		}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-light " style="background-color:#ff6600; margin-bottom: 0px; border-radius: 0px;">
+		<button class="navbar-toggler hidden-md-up " type="button" data-toggle="collapse" data-target="#navTog " ></button>
+		<div class="collapse navbar-toggleable-sm" id="navTog" > <span class="navbar-brand">LogoCar</span>
+			<ul class="nav navbar-nav float-md-right">
+				<li class="nav-item"> <a href="index.html" class="nav-link">Home</a></li>
+				<li class="nav-item"> <a href="showcase.html" class="nav-link">Loja</a></li>
+				<li class="nav-item"> <a href="contact.html" class="nav-link">Entre em Contato</a></li>
+				<li class="nav-item"> <a href="work.html" class="nav-link">Trabalhe Conosco</a></li>
+					<ul class="social-network social-circle">
+			          <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+			          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+			          <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+			        </ul>
+			    <form class="search form-inline my-2 my-lg-0">
+					<input class="form-control form-control-sm" type="text" placeholder="Buscar">
+					<button class="search-btn btn btn-light btn-sm" type="submit"><img class="search-icon" src="https://image.flaticon.com/icons/svg/49/49116.svg"></button>
+				</form>
+			</ul>				 
+		</div>					
+	</nav>
+
+
+	<section class="carimages">
+	<div class="container">
+		<div id="carimages" class="carousel slide " data-ride="carousel" >
+		
+			</ol>			
+			<div class="carousel-inner">
+				<div class="carousel-item active"><img src="car1.png">
+					<h4 align="center" style= "color: white; opacity: 1; padding: 15px; margin-left: 20px;"><b>PORCHE CAYMAN - $$60,000.00</b></h4>
+					<p align="center" style= "color: white; opacity: 1; margin-left: 20px;">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>	
+				</div>
+				<div class="carousel-item "><img src="car2.png">
+					<h4 align="center" style= "color: white; opacity: 1; padding: 15px; margin-left: 20px;"><b>MERCEDES WEAGON - $$50,000.00</b></h4>
+					<p align="center" style= "color: white; opacity: 1; margin-left: 20px;">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+				</div>
+				<div align="center" class="carousel-item "><img src="car3.png">
+					<h4 style= "color: white; opacity: 1; padding: 15px; margin-left: 20px;"><b>MERCEDES SEDAN - $$80,000.00</b></h4>
+					<p align="center" style= "color: white; opacity: 1; margin-left: 20px;">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+				</div>
+				<a class="left carousel-control" href="#carimages" data-slide="prev"><span class="icon-prev"></span></a>
+				<a class="right carousel-control" href="#carimages" data-slide="next"><span class="icon-next"></span></a>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<div class="container titulo" align="center" style="border-bottom: 3px solid #ff6600; padding:10px;"> <h3><b>Novidades</b></h3></div>
+	<div class="container" align="center">
+		<div class="row">
+
+					<div class="card row-card">
+					  <img src="car1.jpg" class="card-img-top rounded  img-fluid" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title">Carro 1</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="showcase.html" class="btn btn-primary">Ver mais...</a>
+					  </div>
+					</div>
+					<div class="card row-card">
+					  <img src="car2.jpg" class="card-img-top rounded  img-fluid" >
+					  <div class="card-body">
+					    <h5 class="card-title">Carro 2</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="showcase.html" class="btn btn-primary">Ver mais...</a>
+					  </div>
+					</div>
+					<div class="card row-card">
+					  <img src="car3.jpg" class="card-img-top rounded  img-fluid" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title">Carro 3</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="showcase.html" class="btn btn-primary">Ver mais...</a>
+					  </div>
+					</div>
+					<div class="card row-card">
+					  <img src="car4.jpg" class="card-img-top rounded  img-fluid" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title">Carro 4</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="showcase.html" class="btn btn-primary">Ver mais...</a>
+					  </div>
+					</div>
+			</div>
+			<div><a href="showcase.html" class="btn btn-primary btn-lg">Ir para loja</a></div>
+
+	</div>
+	
+	<div class="container titulo" align="center" style=" background-color: #ffe484; color: #ff6600; border-radius: 10px; padding: 25px; width: 30%"> <h3>A Voz do Cliente</h3></div>
+	
+
+	<div class="container">
+		<div id="clientimages" class="carousel slide " data-ride="carousel" >
+			<ol class="carousel-indicators">	
+					<li data-target="#clientimages" data-slide-to="0" class="active"></li>
+					<li data-target="#clientimages" data-slide-to="1" ></li>
+					<li data-target="#clientimages" data-slide-to="2" ></li>
+			</ol>			
+			<div class="carousel-inner">
+				<div class="carousel-item active"><img src="prancheta3.png"></div>
+				<div class="carousel-item "><img src="prancheta2.png"></div>
+				<div class="carousel-item "><img src="prancheta1.png"></div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			   <a class="left carousel-control" href="#clientimages" data-slide="prev"><span class="icon-prev"></span></a>
+				<a class="right carousel-control" href="#clientimages" data-slide="next"><span class="icon-next"></span></a>
+			</div>
+		</div>
+	</div>
+<div></div>
+	
+
+	<div class="container titulo"align="center" style="margin-bottom: 5px"> <h3><b>Onde Estamos</b></h3></div>
+	<div class="container">
+		<section><div id="map"></div></section>
+		<footer class="footer text-xs-center"> 
+			<div class="container" >
+            <div class="row" >
+            	<div class="col-sm-2"></div>
+                <div class="col-sm-2" style="line-height: 10px"><p><b>Loja 1</b></p><p>Rua Margaridas 32</p><p>Cidade Nova</p><p>Fone:333 333 333</p><p>mail:loja@loja.pt</p></div>        
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2 adress" style="line-height: 10px"><p><b>Loja 2</b></p><p>Rua Bromélias 32</p><p>Cidade Velha</p><p>Fone:323 444 333</p><p>mail:loja2@loja.pt</p></div>
+                <div class="col-sm-2"></div>       
+        
+            </div>
+			<div style="padding-top: 50px;"><small> &copy; Desenvolvido por <a class="footer-link" href="https://www.behance.net/bximenes">Breno Ximenes</a> - 2019</small></div></footer>
+		
+	</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  <<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFYOkF4L6el6TMoJ1inYnmwyua3RMn-T8&libraries=geometry,places"></script>
+
+
+  <script>
+  	function init(){
+  		var lal = {lat:39 , lng:-9};
+  		var map = new google.maps.Map(document.getElementById('map'),{
+  			zoom:10,
+  			center:lal
+  		});
+  		var marker = new google.maps.Marker({
+  			position:lal,
+  			map:map
+  		});
+  	}
+  	google.maps.event.addDomListener(window,'load',init);
+  </script>
+
+
+</body>
+</html>
